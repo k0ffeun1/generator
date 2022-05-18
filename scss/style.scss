@@ -22,6 +22,7 @@ body {
     height: 100vh;
     font-size: 12px;
     font-family: 'EuclidFlex';
+    padding-bottom: 50px;
     button {
         background-color: white;
         border-radius: 10px;
@@ -159,3 +160,48 @@ button:hover {
     background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
     background-color: #f6f8f4;
   }
+@media (max-width: 500px) {
+    h1 {
+        font-size: 25px;
+        width: 100%;
+    }
+    button {
+        width: 90%;
+    }
+    form {
+        button {
+            width: 100%;
+        }
+    }
+    .inputs__block {
+        flex-direction: column;
+        align-items: center;
+        input:not(:last-child) {
+            margin-right: 0;
+        }
+    }
+    #generation {
+        width: 100%;
+    }
+    .odd__even-block {
+        flex-direction: column;
+        align-items: center;
+        button {
+            width: 90%;
+        }
+        button:first-child {
+            margin-right: 0;
+        }
+    }
+    .btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #btn__sum {
+        margin-right: 0;
+    }
+    #reset {
+        width: 90%;
+    }
+}

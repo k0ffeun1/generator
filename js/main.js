@@ -1,97 +1,3 @@
-// // // Object.create
-// // const currentYear = 2022
-
-// // const person = Object.create({
-// //     calculateAge() {
-// //         console.log('Age:', new Date().getFullYear() - this.birthYear); 
-// //     }
-// // }, { // расширенное добавление нового объекта
-// //     name: {
-// //         value: 'Azamat',
-// //         enumerable: true, // при Значении true - цикл for будет итерироваться по ключам
-// //         writable: true, // позволяет изменять поля
-// //         configurable: true, // можем удалять какой либо ключ из объекта
-// //     },
-// //     age: {
-// //         get() {
-// //             return new Date().getFullYear() - this.birthYear
-// //         },
-// //         set(value) {
-// //             console.log('Set age', value);
-// //         },
-// //     },  
-// //     birthYear: {
-// //         value: 1994,
-// //         enumerable: true, // при Значении false - цикл for не будет итерироваться по ключам
-// //         writable: false, // не позволяет изменять поля
-// //         configurable: false, // не можем удалять какой либо ключ из объекта
-// //     }
-// // })
-// // // const person = {
-// // //     name: 'Azamat',
-// // //     birthYear: 1994,
-// // // }
-// // // person.name = 'Maxim'
-// // // person.birthYear = 1995
-// // // delete person.name
-// // person.age
-
-// // for (let key in person) {
-// //     console.log('key', key, person[key]);
-// // }
-
-// // console.log(person.age = 'dwedwe');
-
-
-
-// // #
-// // ##
-// // ###
-// // ####
-// // #####
-// // ######
-// // #######
-// for (i = 0; i < 7; i++) {
-//     for( i = 0; i < 4; i++) {
-//         let str2 = ''
-//         str2 += '#'
-//     }
-// }
-
-// Задача. Дан массив с числами. Создайте из него новый массив,
-// где останутся лежать только положительные числа. 
-// Создайте для этого вспомогательную функцию isPositive(), 
-// которая параметром будет принимать число и возвращать true, 
-// если число положительное, и false - если отрицательное.
-
-// let array = [1, 2, -3, 4, 5, -6, 7, -8, 9]
-// let arrayPositive = []
-// function isPositive(arr) {
-//     for (i = 0; i < arr.length; i++) {
-//         if (arr[i] > 0) {
-//             arrayPositive.push(arr[i])
-//         }
-//     }
-//     return arrayPositive
-// }
-// console.log(isPositive(array));
-
-// 2) Сделайте функцию isNumberInRange, которая параметром принимает число и проверяет, 
-// что оно больше нуля и меньше 10. Если это так - пусть функция возвращает true, 
-// если не так - false.
-
-// function isNumberInRange(num) {
-//     if (num > 0 && num < 10) {
-//         return true
-//     } else {
-//         return false
-//     }
-// }
-// console.log(isNumberInRange(11));
-
-// 3) Дан массив с числами. Запишите в новый массив только те числа, 
-// которые больше нуля и меньше 10-ти. Для этого используйте 
-// вспомогательную функцию isNumberInRange из предыдущей задачи.
 
 // ГЕНЕРАТОР СЛУЧАЙНЫХ МАССИВ С ЗАДАННЫМИ ПАРАМЕТРАМИ
 
@@ -139,7 +45,7 @@ function evenFunc() {
     }
     return arrayEven
 }
-// Функция повторяющихся значений
+
 // Функция суммы всех чисел случайного массива 
 function arraySum() {
     let arraySum = 0
@@ -162,6 +68,8 @@ generation.onclick = function () {
         array.splice(0, [i + 10])
     }
     textOddEven.innerHTML = ''
+    textDubbles.innerHTML = ''
+    itog.innerHTML = ''
     return textDiv.innerHTML = arrayRandom(Number(input1.value), Number(input2.value), Number(input3.value))
 }
 // Добавление события клика на кнопку - 'Очистить'
@@ -197,21 +105,26 @@ even.onclick = function () {
 
 // Функция поиска повторяющихся значение
 function dubblesArray() {
-    let len = array.length,
-        outArray = [],
+    let outArray = [],
         counts = {};
+    flag = false
 
-    for (var i = 0; i < len; i++) {
-        var item = array[i];
+    for (var i = 0; i < array.length; i++) {
+        let item = array[i];
         counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
         if (counts[item] === 2) {
             outArray.push(item);
+        } else if (counts[item] === 1) {
+            flag = true
+        } else if(flag) {
+            outArray.push('Не найдено')
         }
     }
-
+    
     return outArray;
 }
 // Добавление события клика на кнопку - 'Найти повторяющиеся значения'
 dubbles.onclick = function () {
     return textDubbles.innerHTML = dubblesArray()
 }
+

@@ -32,6 +32,7 @@ body {
   height: 100vh;
   font-size: 12px;
   font-family: 'EuclidFlex';
+  padding-bottom: 50px;
 }
 
 body button {
@@ -193,4 +194,65 @@ button:hover {
 ::-webkit-scrollbar-button:horizontal:end:increment {
   background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
   background-color: #f6f8f4;
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 25px;
+    width: 100%;
+  }
+  button {
+    width: 90%;
+  }
+  form button {
+    width: 100%;
+  }
+  .inputs__block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .inputs__block input:not(:last-child) {
+    margin-right: 0;
+  }
+  #generation {
+    width: 100%;
+  }
+  .odd__even-block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .odd__even-block button {
+    width: 90%;
+  }
+  .odd__even-block button:first-child {
+    margin-right: 0;
+  }
+  .btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #btn__sum {
+    margin-right: 0;
+  }
+  #reset {
+    width: 90%;
+  }
 }
