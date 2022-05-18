@@ -20,17 +20,25 @@
                 <input id="input3" type="text" placeholder="Укажите количество элементов массива">
             </div>
             <button id="generation" type="button">Сгенерироать случайный массив чисел</button>
-            <button id="reset" type="submit">Очистить</button>
-            <p id="text"></p>
+            <p id="text" class="text"></p>
+            <p id="textOddEven" class="text"></p>
+            <p id="textDubbles" class="text"></p>
+
+            <button id="sort" type="button">Сортировка массива от минимального до максимального</button>
+            <div class="odd__even-block">
+                <button type="button" id="odd">Показать все нечетные числа</button>
+                <button type="button" id="even">Показать все четные числа</button>
+            </div>
+            <button id="dubbles" type="button">Найти повторяющиеся значения</button>
         </form>
     </div>
     <div class="btns">
-        <button id="btn">Сложить все числа</button>
+        <button id="btn__sum" class="btn">Сложить все числа</button>
+        <button id="btn__multi" class="btn">Умножить все числа</button>
     </div>
-
     <div id="itog" class="itog">
-
     </div>
+    <button id="reset" type="submit">Очистить</button>
     <script src="js/main.js"></script>
 </body>
 

@@ -24,21 +24,22 @@ body {
     font-family: 'EuclidFlex';
     button {
         background-color: white;
-        border: none;
         border-radius: 10px;
+        font-size: 25px;
     }
 }
 .instructions {
     width: 100%;
     padding-top: 100px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 h1 {
     text-align: center;
     text-transform: uppercase;
     color: white;
     margin-bottom: 20px;
+    font-size: 50px;
 }
 form {
     font-size: 10px;
@@ -56,6 +57,8 @@ form {
         flex-basis: 23%;
         text-align: center;
         outline: none;
+        font-size: 20px;
+        padding: 5px 15px;
     }
     input:focus {
         outline: none;
@@ -66,7 +69,7 @@ form {
     display: flex;
     justify-content: center;
 }
-#text {
+.text {
     width: 100%;
     background: transparent;
     color: white;
@@ -79,12 +82,80 @@ form {
 button {
     cursor: pointer;
     margin: 20px 0;
+    transition: 0.5s;
+    border: 1px solid transparent;
+    padding: 5px 15px;
+}
+button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }
 #generation, #reset {
     width: 20%;
 }
+.odd__even-block {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    button {
+        width: 25%;
+        margin: 0;
+    }
+    button:first-child {
+        margin-right: 20px;
+    }
+}
 #itog {
-    font-size: 25px;
+    font-size: 30px;
     color: white;
     height: 37.5px;
 }
+#btn__sum {
+    margin-right: 20px;
+}
+
+
+
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 12px;
+    /* ширина для вертикального скролла */
+    height: 8px;
+    /* высота для горизонтального скролла */
+    background-color: #000408;
+  }
+  
+  /* ползунок скроллбара */
+  ::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 9em;
+    -webkit-box-shadow: inset 1px 1px 10px #f3faf7;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #253861;
+  }
+  
+  /* Стрелки */
+  ::-webkit-scrollbar-button:vertical:start:decrement {
+    background: linear-gradient(120deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(240deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(0deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+  }
+  
+  ::-webkit-scrollbar-button:vertical:end:increment {
+    background: linear-gradient(300deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(60deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(180deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+  }
+  
+  ::-webkit-scrollbar-button:horizontal:start:decrement {
+    background: linear-gradient(30deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(150deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(270deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+  }
+  
+  ::-webkit-scrollbar-button:horizontal:end:increment {
+    background: linear-gradient(210deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(330deg, #02141a 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(90deg, #02141a 30%, rgba(0, 0, 0, 0) 31%);
+    background-color: #f6f8f4;
+  }

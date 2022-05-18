@@ -93,29 +93,54 @@
 // которые больше нуля и меньше 10-ти. Для этого используйте 
 // вспомогательную функцию isNumberInRange из предыдущей задачи.
 
-const textDiv = document.getElementById('text')
-const btn = document.getElementById('btn')
-const randomNums = document.getElementById('btn__random')
-const itog = document.getElementById('itog')
-const generation = document.getElementById('generation')
-const form = document.getElementById('form')
+// ГЕНЕРАТОР СЛУЧАЙНЫХ МАССИВ С ЗАДАННЫМИ ПАРАМЕТРАМИ
+
 const input1 = document.getElementById('input1')
 const input2 = document.getElementById('input2')
 const input3 = document.getElementById('input3')
-let formData = new FormData(form)
+const generation = document.getElementById('generation')
+const reset = document.getElementById('reset')
+const btnSort = document.getElementById('sort')
+const odd = document.getElementById('odd')
+const even = document.getElementById('even')
+const dubbles = document.getElementById('dubbles')
+const textDiv = document.getElementById('text')
+const textOddEven = document.getElementById('textOddEven')
+const textDubbles = document.getElementById('textDubbles')
+const btnSum = document.getElementById('btn__sum')
+const btnMulti = document.getElementById('btn__multi')
+const itog = document.getElementById('itog')
+let array = []
 
-formData = Array.from(formData)
-// console.log(formData[0][1]);
-// console.log(formData[1][1]);
-// console.log(formData[2][1]);
-
-const array = []
+// Функция подбора случайного массива чисел
 function arrayRandom(min, max, elements) {
     for (i = 0; i < elements; i++) {
         array.push(` ${Math.floor(Math.random(i) * max) + min}`)
     }
     return array
 }
+// Функция перебора нечетных чисел
+function oddFunc() {
+    let arrayOdd = []
+    for (i = 0; i < array.length; i++) {
+        if (array[i] % 2 != 0) {
+            arrayOdd.push(array[i])
+        }
+    }
+    return arrayOdd
+}
+// Функция перебора четных чисел
+function evenFunc() {
+    let arrayEven = []
+    for (i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            arrayEven.push(array[i])
+        }
+    }
+    return arrayEven
+}
+// Функция повторяющихся значений
+// Функция суммы всех чисел случайного массива 
 function arraySum() {
     let arraySum = 0
     for (i = 0; i < array.length; i++) {
@@ -123,27 +148,70 @@ function arraySum() {
     }
     return arraySum
 }
+// Функция умножения всех чисел случайного массива 
+function arrayMulti() {
+    let arraySum = 1
+    for (i = 0; i < array.length; i++) {
+        arraySum *= Number(array[i])
+    }
+    return arraySum
+}
+// Добавление события клика на кнопку - 'Сгенерировать случайный массив'
 generation.onclick = function () {
     for (i = 0; i < array.length; i++) {
         array.splice(0, [i + 10])
     }
+    textOddEven.innerHTML = ''
     return textDiv.innerHTML = arrayRandom(Number(input1.value), Number(input2.value), Number(input3.value))
 }
-btn.onclick = function () {
-    return itog.innerText = arraySum()
-}
-
-
-const reset = document.getElementById('reset')
+// Добавление события клика на кнопку - 'Очистить'
 reset.onclick = function () {
     textDiv.innerHTML = ''
+    textOddEven.innerHTML = ''
+    textDubbles.innerHTML = ''
+    itog.innerHTML = ''
+    input1.value = ''
+    input2.value = ''
+    input3.value = ''
+}
+// Добавление события клика на кнопку - 'Сложить все числа'
+btnSum.onclick = function () {
+    return itog.innerText = arraySum()
+}
+// Добавление события клика на кнопку - 'Умножить все числа'
+btnMulti.onclick = function () {
+    return itog.innerText = arrayMulti()
+}
+// Функция сортировки массива
+btnSort.onclick = function () {
+    return textDiv.innerHTML = array.sort((a, b) => a - b);
+}
+// Добавление события клика на кнопку - 'Показать все нечетные числа'
+odd.onclick = function () {
+    return textOddEven.innerHTML = oddFunc()
+}
+// Добавление события клика на кнопку - 'Показать все четные числа'
+even.onclick = function () {
+    return textOddEven.innerHTML = evenFunc()
 }
 
-// function multi(num1,num2) {
-//     function square(num1) {
-//         return num1 ** 2
-//     }
-//     return square(num1) + square(num2)
-// }
-// console.log(multi(2,5));
+// Функция поиска повторяющихся значение
+function dubblesArray() {
+    let len = array.length,
+        outArray = [],
+        counts = {};
 
+    for (var i = 0; i < len; i++) {
+        var item = array[i];
+        counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+        if (counts[item] === 2) {
+            outArray.push(item);
+        }
+    }
+
+    return outArray;
+}
+// Добавление события клика на кнопку - 'Найти повторяющиеся значения'
+dubbles.onclick = function () {
+    return textDubbles.innerHTML = dubblesArray()
+}
